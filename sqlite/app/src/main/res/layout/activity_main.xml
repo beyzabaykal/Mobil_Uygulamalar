@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:layout_marginTop="50dp"
+            android:id="@+id/etAd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ad"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/etSoyad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Soyad"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/etYas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Yaş"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/etSehir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Şehir"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/btnEkle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kayıt Ekle"/>
+
+        <Button
+            android:id="@+id/btnGoster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kayıtları Göster"/>
+
+        <Button
+            android:id="@+id/btnSil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kayıt Sil"/>
+
+        <Button
+            android:id="@+id/btnGuncelle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kayıt Güncelle"/>
+
+    </LinearLayout>
+</ScrollView>
