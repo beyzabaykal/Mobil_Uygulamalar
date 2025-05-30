@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Bildirim izni -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- Vibrasyon izni -->
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <!-- Alarm izni -->
-    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Vibrasyon izni -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Alarm izni -->
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -19,18 +16,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleAlarm"
         tools:targetApi="31">
-
+        <activity
+            android:name=".StopwatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlarmActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Alarm tetikleyicisi olan BroadcastReceiver'ı tanımla -->
 
-        <!-- Alarm tetikleyicisi olan BroadcastReceiver'ı tanımla -->
-        <receiver android:name=".MyBroadcastReceiver" android:enabled="true" android:exported="false"/>
+        <activity android:name=".StopwatchActivity" android:exported="false" />
+        <activity android:name=".AlarmListActivity"></activity>
+
+        <receiver
+            android:name=".MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

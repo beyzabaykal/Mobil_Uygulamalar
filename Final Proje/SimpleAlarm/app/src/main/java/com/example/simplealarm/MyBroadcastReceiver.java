@@ -1,4 +1,3 @@
-// MyBroadcastReceiver.java
 package com.example.simplealarm;
 
 import android.app.NotificationManager;
@@ -21,37 +20,36 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        // Bildirim iznini kontrol et
-        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            return; // Eğer izin yoksa, alarm sesi çalmadan çık
+        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
 
-        // MainActivity'yi açacak PendingIntent oluştur
-        Intent i = new Intent(context, MainActivity.class);
+        // AlarmActivity'yi açacak PendingIntent
+        Intent i = new Intent(context, AlarmActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_IMMUTABLE);
 
-        // Vibrasyon işlemi
+        // Titreşim
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator != null) {
-            vibrator.vibrate(2000); // 2 saniye titreşim
+            vibrator.vibrate(2000);
         }
 
-        // Bildirim oluşturma
+        // Bildirim
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Notify")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Alarm Reminders")
-                .setContentText("Hey, Wake Up!")
+                .setContentText("HEY, ALARM!!")
                 .setAutoCancel(true)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setContentIntent(pendingIntent); // Bildirime tıklanınca MainActivity açılacak
+                .setContentIntent(pendingIntent);
 
-        // Bildirimi gönderme
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
         notificationManagerCompat.notify(200, builder.build());
 
-        // Alarm sesini çalma
+        // Alarm sesi
         Uri sound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + context.getPackageName() + "/" + R.raw.wakeup_audio);
         Ringtone ringtone = RingtoneManager.getRingtone(context, sound);
         ringtone.play();

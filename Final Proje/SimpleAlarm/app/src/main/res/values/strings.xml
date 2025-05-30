@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Simple Alarm</string>
+
+
+    <string name="mon">Pzt</string>
+    <string name="tue">Sal</string>
+    <string name="wed">Çar</string>
+    <string name="thu">Per</string>
+    <string name="fri">Cum</string>
+    <string name="sat">Cmt</string>
+    <string name="sun">Paz</string>
+    <string name="set_alarm">ALARM KUR</string>
+</resources>
